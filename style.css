@@ -2,10 +2,12 @@
 ul, li {list-style: none;}
 .slide_wrap{
     position: relative;
-    width: 660px;
+    width: 1950px;
     margin: 0 auto;
-    height: 200px;
+    height: 680px;
     overflow: hidden;
+    margin: 0;
+    position: relative;
 }
 .slides{
     position: absolute;
@@ -15,11 +17,31 @@ ul, li {list-style: none;}
     transition: 0.5s ease-out;
 }
 .slides li{
-    width: 200px;
-    height: 200px;
+    width: 1950;
+    height: 680px;
     background: #ccc;
     float: left;
+    border-radius: 8px;
 }
-.slides li:not(:last-child){
-    margin-right: 30px;
+/* .slides li:not(:last-child){
+    margin-right: 28px;
+} */
+
+.arrow .prev,
+.arrow .next{
+    width: 33px;
+    height: 45px;
 }
+.arrow .prev{
+    position: absolute;
+    top:32%;
+    cursor: pointer;
+}
+
+.arrow .next{
+    position: absolute;
+    top:32%;
+    right: 0;
+    cursor: pointer;
+}
+

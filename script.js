@@ -2,8 +2,8 @@ var slides = document.querySelector('.slides'),
     slide = document.querySelectorAll('.slides li'),
     currentIdx = 0,
     slideCount = slide.length,
-    slideWidth = 200,
-    slideMargin = 30,
+    slideWidth = 1950,
+    // slideMargin = 28,
     prevBtn = document.querySelector('.prev'),
     nextBtn = document.querySelector('.next');
 
@@ -14,7 +14,7 @@ var slides = document.querySelector('.slides'),
             //a.cloneNode(true) => a요소의 내용까지 복사한다
             var cloneSlide = slide[i].cloneNode(true);
             cloneSlide.classList.add('clone');
-            //a.appendChild(b) -> a요소 뒤에 b를 추가한다
+            //a.appendChild(b) -> a의 자식 요소 가장 마지막에 b를 추가한다
             slides.appendChild(cloneSlide);
         }
        for(var i = slideCount-1 ; i >= 0; i--){
@@ -36,12 +36,12 @@ var slides = document.querySelector('.slides'),
         var newSlideCount = currentSlides.length;
 
         //ul의 넓이 구하는식
-        var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin +'px';
+        var newWidth = (slideWidth) * newSlideCount +'px';
         slides.style.width = newWidth;
     }
 
     function setInitialPos(){
-        var initialTranslateValue = -(slideWidth + slideMargin) * slideCount ; //왼쪽으로 당겨주어야 하기 때문에 음수로 변형
+        var initialTranslateValue = -(slideWidth) * slideCount ; //왼쪽으로 당겨주어야 하기 때문에 음수로 변형
         //slides {transform:translateX(-1150px);}
         slides.style.transform = 'translateX(' + initialTranslateValue + 'px)';
         
@@ -54,7 +54,7 @@ var slides = document.querySelector('.slides'),
     });
 
     function moveSlide(num){    
-        slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+        slides.style.left = -num * (slideWidth) + 'px';
         currentIdx = num;
         console.log(currentIdx, slideCount);
         if(currentIdx == slideCount || currentIdx == -slideCount){
