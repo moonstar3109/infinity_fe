@@ -69,3 +69,27 @@ var slides = document.querySelector('.slides'),
           
         }
     }
+
+    //clearInterval(timer);
+    var timer = undefined;
+
+    function autoSlide(){
+        if(timer == undefined){
+            timer = setInterval(function(){
+                moveSlide(currentIdx +1);
+            },3000);
+        }
+    }
+ 
+
+    function stopSlide(){
+        clearInterval(timer);
+        console.log(timer);
+        timer = undefined;
+    }
+    slides.addEventListener('mouseenter',function(){
+        stopSlide();
+    });
+    slides.addEventListener('mouseleave',function(){
+        autoSlide();
+    });
